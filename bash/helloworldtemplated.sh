@@ -5,3 +5,4 @@ cat <<EOF
 echo 'Hello World!'
 echo "I am process # $$"
 EOF
+exit
