@@ -25,6 +25,7 @@ echo "12 Largest regular files"
 echo "============="
 find / -type f -executable -perm -4000 -ls 2>/dev/null |head -n 12
 echo ""
+exit
 # for the task, add
 # commands to display a title
 # commands to make a list of the 12 biggest files
