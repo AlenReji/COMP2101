@@ -49,3 +49,4 @@ fi
 
 message="Welcome to planet $hostname, $title, $USER"
 echo "$message"
+exit
