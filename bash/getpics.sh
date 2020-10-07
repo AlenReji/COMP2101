@@ -37,3 +37,4 @@ test -d ~/public_html/pics && cat <<EOF
 Found $(find ~/public_html/pics -type f|wc -l) files in the public_html/pics directory.
 The public_html/pics directory uses $(du -sh ~/public_html/pics|awk '{print $1}') space on the disk.
 EOF
+exit
