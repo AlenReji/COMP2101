@@ -32,3 +32,4 @@ average=$((die1+die2/2))
 echo "Rolled $die1, $die2"
 echo "Sum of the dice is $sum"
 echo "Average of the dice is $average"
+exit
