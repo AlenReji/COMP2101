@@ -31,3 +31,4 @@ desiredhostname="pc$studentnum"
 echo "The desired hostname is $desiredhostname"
 test $myhostname == $desiredhostname || (sudo sed -i "s/$myhostname/$desiredhostname/" /etc/hosts && echo "Hostname in /etc/hosts has been changed to $desiredhostname")
 test $myhostname == $desiredhostname || (sudo hostnamectl set-hostname $desiredhostname && echo "The current hostname has been changed, please reboot the system to check the new hostname.")
+exit
