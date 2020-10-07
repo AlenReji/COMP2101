@@ -20,3 +20,14 @@
 # If that hostname is not the current hostname, change it using the hostnamectl command and
 #     tell the user you changed the current hostname and they should reboot to make sure the new name takes full effect
 #e.g. hostnamectl set-hostname $newname
+
+myhostname=$(hostname)
+echo "The current hostname is $myhostname"
+
+echo "Please enter your student number"
+read studentnum
+echo "Your student number is $studentnum"
+desiredhostname="pc$studentnum"
+echo "The desired hostname is $desiredhostname"
+test $myhostname == $desiredhostname || (sudo sed -i "s/$myhostname/$desiredhostname/" /etc/hosts && echo "Hostname in /etc/hosts has been changed to $desiredhostname")
+test $myhostname == $desiredhostname || (sudo hostnamectl set-hostname $desiredhostname && echo "The current hostname has been changed, please reboot the system to check the new hostname.")
