@@ -25,7 +25,6 @@ hour=$(date +%I)
 minute=$(date +%M)
 echo "It is a $day at $hour:$minute"
 
-
 test $day == "Monday" && title="Hot"
 test $day == "Tuesdey" && title="Holiday"
 test $day == "Wednesday" && title="Cloudy"
