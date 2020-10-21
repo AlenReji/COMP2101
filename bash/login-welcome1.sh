@@ -25,13 +25,27 @@ hour=$(date +%I)
 minute=$(date +%M)
 echo "It is a $day at $hour:$minute"
 
-test $day == "Monday" && title="Hot"
-test $day == "Tuesdey" && title="Holiday"
-test $day == "Wednesday" && title="Cloudy"
-test $day == "Thursday" && title="rainy"
-test $day == "Friday" && title="sunny"
-test $day == "Saturday" && title="hot"
-test $day == "Sunday" && title="thunderstorm"
+if [ $day == "Monday" ];
+then
+  title="Monday might be hot"
+elif [ $day == "Tuesday" ];
+then
+  title="Tuesdey might be a holiday"
+elif [ $day == "Wednesday" ];
+then
+  title=" Wednesday might be cloudy "
+elif [ $day == "THursday" ];
+then
+  title="Thursday might be rainy"
+elif [ $day == "Friday" ];
+then
+  title=" Friday might be sunny"
+elif [ $day == "Saturday" ];
+then
+  title="Saturday might be  cold"
+else
+  title="Sunday might be thunderstorm"
+fi
 ##########################
 message="Welcome to planet $hostname, $title, $USER"
 cowsay "$message"
