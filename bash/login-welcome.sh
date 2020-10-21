@@ -32,6 +32,6 @@ test $day == "Thursday" && title="rainy"
 test $day == "Friday" && title="sunny"
 test $day == "Saturday" && title="hot"
 test $day == "Sunday" && title="thunderstorm"
-
+##########################
 message="Welcome to planet $hostname, $title, $USER"
 cowsay "$message"
