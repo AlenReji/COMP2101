@@ -64,3 +64,4 @@ secondNumber=7
 a=1
 b=01
 [ $a = $b ] && echo "$a is alphanumerically equal to $b" || echo "$a is not alphanumerically equal to $b"
+exit
