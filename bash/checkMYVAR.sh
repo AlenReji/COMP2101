@@ -8,3 +8,4 @@
 
 [ -v MYVAR ] && [ -n "$MYVAR" ] && echo "The variable MYVAR has data in it"
 [ -v MYVAR ] && [ -z "$MYVAR" ] && echo "The variable MYVAR is empty"
+exit
