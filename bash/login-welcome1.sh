@@ -46,7 +46,7 @@ then
 else
   title="Sunday might be thunderstorm"
 fi
-##########################
+####################################
 message="Welcome to planet $hostname, $title, $USER"
 cowsay "$message"
 exit
