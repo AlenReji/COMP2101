@@ -36,4 +36,3 @@ test $day == "Sunday" && title="thunderstorm"
 
 message="Welcome to planet $hostname, $title, $USER"
 cowsay "$message"
-exit
