@@ -33,9 +33,16 @@ test -x /etc/resolv.conf && echo "/etc/resolv.conf is executable" || echo "/etc/
 [ /etc/hosts -nt /etc/resolv.conf ] && echo "/etc/hosts is newer than /etc/resolv.conf"
 [ /etc/hosts -ot /etc/resolv.conf ] && echo "/etc/resolv.conf is newer than /etc/hosts"
 [ ! /etc/hosts -nt /etc/resolv.conf -a ! /etc/hosts -ot /etc/resolv.conf ] && echo "/etc/hosts is the same age as /etc/resolv.conf"
-
+[ ! /etc/hosts -nt /etc/resolv.conf -a ! /etc/hosts -ot /etc/resolv.conf ] && echo "/etc/hosts is the same age as /etc/resolv.conf" \
+  || ( [ /etc/hosts -nt /etc/resolv.conf ] && echo "/etc/hosts is the newest" || echo "/etc/resolv.conf is the newest" )
 # this section demonstrates doing numeric tests in bash
+read -p "First number: " firstNumber
+read -p "Second number: " secondNumber
 
+[ $firstNumber -eq $secondNumber ] && echo "The two numbers are the same"
+[ $firstNumber -ne $secondNumber ] && echo "The two numbers are not the same"
+[ $firstNumber -lt $secondNumber ] && echo "The first number is less than the second number"
+[ $firstNumber -gt $secondNumber ] && echo "The first number is greater than the second number"
 # TASK 1: Improve it by getting the user to give us the numbers to use in our tests
 # TASK 2: Improve it by adding a test to tell the user if the numbers are even or odd
 # TASK 3: Improve it by adding a test to tell the user is the second number is a multiple of the first number
@@ -64,3 +71,4 @@ secondNumber=7
 a=1
 b=01
 [ $a = $b ] && echo "$a is alphanumerically equal to $b" || echo "$a is not alphanumerically equal to $b"
+exit
