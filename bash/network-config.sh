@@ -82,4 +82,3 @@ LAN Hostname    : $(getent hosts $(ip a s $(ip a |awk '/: e/{gsub(/:/,"");print 
 External IP     : $(curl -s icanhazip.com)
 External Name   : $(getent hosts $(curl -s icanhazip.com) | awk '{print $2}')
 EOF
-
