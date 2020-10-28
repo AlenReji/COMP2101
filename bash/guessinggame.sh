@@ -43,3 +43,4 @@ while [ $userguess != $secretnumber ]; do # ask repeatedly until they get it rig
   fi
 echo "You got it! Have a milkdud."
 done
+exit
