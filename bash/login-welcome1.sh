@@ -17,6 +17,7 @@
 ###############
 # Variables   #
 ###############
+
 USER="Alen"
 hostname=$(hostname)
 
