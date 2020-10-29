@@ -15,24 +15,45 @@
 # Usage:
 #   error-message ["some text to print to stderr"]
 function error-message {
-
+  echo "Error occured: $*" >&2
 }
 
 # This function will send a message to stderr and exit with a failure status
 # Usage:
 #   error-exit ["some text to print to stderr" [exit-status]]
 function error-exit {
-
+  echo-message "$*"
+  exit
 }
 #This function displays help information if the user asks for it on the command line or gives us a bad command line
 function displayhelp {
-
+  echo "--host         displays the hostname"
+  echo " -h or --help  displays the help"
+  echo "--domain       displays the domain name"
+  echo "--ipconfig     display the ip info"
+  echo "--os           display the operating system info"
+  echo "--cpu          display the cpu info"
+  echo "--memory       display the memory info"
+  echo "--disk         display the disk info"
+  echo "--printer      display the printer info"
 }
 
 # This function will remove all the temp files created by the script
 # The temp files are all named similarly, "/tmp/somethinginfo.$$"
 # A trap command is used after the function definition to specify this function is to be run if we get a ^C while running
 
+function cleanup {
+  rm /tmp/sysinfo.$$
+  rm /tmp/memoryinfo.$$
+  rm /tmp/cpuinfo.$$
+  rm /tmp/businfo.$$
+  logger -t "$(basename $0)" -i -p user.info -s "Cleaning the temp files"
+  exit
+}
+
+trap cleanup SIGHUP
+trap cleanup SIGTERM
+trap cleanup SIGINT
 # End of section to be done for TASK
 # Remainder of script does not require any modification, but may need to be examined in order to create the functions for TASK
 
