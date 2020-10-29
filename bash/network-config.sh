@@ -75,10 +75,22 @@
 #   External IP     : $myExternalIP
 #   External Name   : $myExternalName
 
-cat <<EOF
-Hostname        : $(hostname)
-LAN Address     : $(ip a s $(ip a |awk '/: e/{gsub(/:/,"");print $2}')|awk '/inet /{gsub(/\/.*/,"");print $2}')
-LAN Hostname    : $(getent hosts $(ip a s $(ip a |awk '/: e/{gsub(/:/,"");print $2}')|awk '/inet /{gsub(/\/.*/,"");print $2}')| awk '{print $2}')
-External IP     : $(curl -s icanhazip.com)
-External Name   : $(getent hosts $(curl -s icanhazip.com) | awk '{print $2}')
-EOF
+
+Hostname=$(hostname)
+LANAddress=$(ip a s $(ip a |awk '/: e/{gsub(/:/,"");print $2}')|awk '/inet /{gsub(/\/.*/,"");print $2}')
+LANHostname=$(getent hosts $(ip a s $(ip a |awk '/: e/{gsub(/:/,"");print $2}')|awk '/inet /{gsub(/\/.*/,"");print $2}')| awk '{print $2}')
+ExternalIP=$(curl -s icanhazip.com)
+ExternalName=$(getent hosts $ExternalIP | awk '{print $2}')
+
+#Task 2
+RouterAddress=$(ip r | grep default | awk '{print $3}')
+RouterName=$(getent hosts $RouterAddress | awk '{print $2}')
+
+
+echo "Hostname       : $Hostname"
+echo "LAN Address    : $LANAddress"
+echo "LAN Hostname   : $LANHostname"
+echo "External IP    : $ExternalIP"
+echo "External Name  : $ExternalName"
+echo "Router Address : $RouterAddress"
+echo "Router Name    : $RouterName"
