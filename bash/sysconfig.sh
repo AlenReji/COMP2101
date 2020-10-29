@@ -51,6 +51,7 @@ function cleanup {
   exit
 }
 
+trap cleanup SIGHUP
 trap cleanup SIGTERM
 trap cleanup SIGINT
 # End of section to be done for TASK
