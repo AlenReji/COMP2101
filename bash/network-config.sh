@@ -94,3 +94,4 @@ echo "External IP    : $ExternalIP"
 echo "External Name  : $ExternalName"
 echo "Router Address : $RouterAddress"
 echo "Router Name    : $RouterName"
+exit
