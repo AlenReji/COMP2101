@@ -171,3 +171,4 @@ cat /tmp/sysreport.$$
 
 # cleanup temporary files
 cleanup
+exit
