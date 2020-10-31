@@ -119,3 +119,4 @@ EOF
 #####
 # End of per-interface report
 #####
+exit
