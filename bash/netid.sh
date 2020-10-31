@@ -88,7 +88,7 @@ EOF
 #####
 
 # define the interface being summarized
-interface="eno1"
+interface="ens33"
 [ "$verbose" = "yes" ] && echo "Reporting on interface(s): $interface"
 
 [ "$verbose" = "yes" ] && echo "Getting IPV4 address and name for interface $interface"
