@@ -1,1 +1,1 @@
-Get-CimInstance win32_networkadapterconfiguration -Filter ipenabled=true | select Description,Index,IPAddress,IPsubnet,DNSDomain,DNSServerSearchOrder
+Get-CimInstance win32_networkadapterconfiguration -Filter ipenabled=true | Format-Table -GroupBy select Index,Description,IPAddress,IPsubnet,DNSDomain,DNSServerSearchOrder 
