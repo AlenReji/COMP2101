@@ -1,4 +1,5 @@
-﻿$env:path = "$env:path;$users/documents/github/comp2101/powershell"
+﻿$env:path += ";$users/alen/documents/github/comp2101/powershell"
+
 function welcome {
 	write-output "Welcome to planet $env:computername Overlord $env:username"
 	$now = get-date -format 'HH:MM tt on dddd'
@@ -14,9 +15,14 @@ function get-cpuinfo {
 get-cpuinfo
 
 function get-mydisks {
-    Get-WmiObject win32_diskdrive | foreach {
-        New-Object -TypeName psobject -Property @{Manufacturer=$_.Manufacturer;Model=$_.Model;
-        SerialNumber=$_.SerialNumber;Firmware=$FirmwareRevision=$_.FirmwareRevision;Size=($_.size / 1GB).tostring() + "GB"}
-    }
+	Get-WmiObject win32_diskdrive | foreach {
+		New-Object -TypeName psobject -Property @{
+    			Manufacturer=$_.manufacturer;
+    			Model=$_.model;
+    			SerialNumber=$_.serialnumber;
+    			FirmwareRevision=$_.firmwarerevision;
+    			size=$_.size
+    		}
+	}	
 }
 #get-mydisks
