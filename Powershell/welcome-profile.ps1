@@ -1,4 +1,4 @@
-﻿$env:Path = "$env:Path;C:\Users\Alen\Documents\GitHub\COMP2101\Powershell"
+﻿$env:Path = "$env:Path;C:/Users/Alen/Documents/GitHub/COMP2101/Powershell"
 function welcome {
 	write-output "Welcome to planet $env:computername Overlord $env:username"
 	$now = get-date -format 'HH:MM tt on dddd'
